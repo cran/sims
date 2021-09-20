@@ -1,6 +1,6 @@
-context("sims-check")
-
 test_that("sims_check", {
+  skip_if_not_installed("rjags")
+  
   tempdir <- file.path(tempdir(), "sims")
   unlink(tempdir, recursive = TRUE)
 
@@ -12,7 +12,7 @@ test_that("sims_check", {
     "must already exist"
   )
 
-  set.seed(101)
+  withr::local_seed(101)
   expect_true(sims_simulate("a ~ dunif(0,1)",
     nsims = 2L,
     path = tempdir, save = TRUE

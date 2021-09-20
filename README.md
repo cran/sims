@@ -6,9 +6,8 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![R build
-status](https://github.com/poissonconsulting/sims/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/sims/actions)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![R-CMD-check](https://github.com/poissonconsulting/sims/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/sims/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/poissonconsulting/sims/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/sims?branch=master)
 [![License:
@@ -19,7 +18,7 @@ status](https://www.r-pkg.org/badges/version/sims)](https://cran.r-project.org/p
 <!-- badges: end -->
 
 sims is an R package to generate datasets from R or
-[JAGS](http://mcmc-jags.sourceforge.net) code for use in simulation
+[JAGS](https://mcmc-jags.sourceforge.io/) code for use in simulation
 studies. The datasets are returned as an
 [nlists](https://github.com/poissonconsulting/nlist) object and/or saved
 to file as individual .rds files. Parallelization is implemented using
@@ -29,8 +28,15 @@ Progress is reported using the
 
 ## Installation
 
-To install the developmental version from
-[GitHub](https://github.com/poissonconsulting/sims)
+You can install the released version of sims from
+[CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("sims")
+```
+
+And the development version from
+[GitHub](https://github.com/poissonconsulting/sims) with:
 
 ``` r
 # install.packages("remotes")
@@ -47,9 +53,9 @@ of an [nlists](https://github.com/poissonconsulting/nlist) object.
 ``` r
 library(sims)
 set.seed(10)
-sims_simulate("a ~ dunif(0,1)", nsims = 2L)
+sims_simulate("a <- runif(1)", nsims = 2L)
 #> $a
-#> [1] 0.6857306
+#> [1] 0.2213763
 #> 
 #> an nlists object of 2 nlist objects each with 1 numeric element
 ```
@@ -59,13 +65,13 @@ file in `path`.
 
 ``` r
 set.seed(10)
-sims_simulate("a ~ dunif(0,1)", nsims = 2L, save = TRUE, path = tempdir(), exists = NA)
+sims_simulate("a <- runif(1)", nsims = 2L, save = TRUE, path = tempdir(), exists = NA)
 #> [1] TRUE
 sims_data_files(tempdir())
 #> [1] "data0000001.rds" "data0000002.rds"
 sims_data(tempdir())
 #> $a
-#> [1] 0.6857306
+#> [1] 0.2213763
 #> 
 #> an nlists object of 2 nlist objects each with 1 numeric element
 ```

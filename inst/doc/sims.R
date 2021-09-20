@@ -7,11 +7,11 @@ knitr::opts_chunk$set(
 ## ----example------------------------------------------------------------------
 library(sims)
 set.seed(10)
-sims_simulate("a ~ dunif(0,1)", nsims = 2L)
+sims_simulate("a <- runif(1)", nsims = 2L)
 
 ## -----------------------------------------------------------------------------
 set.seed(10)
-sims_simulate("a ~ dunif(0,1)", nsims = 2L, save = TRUE, path = tempdir(), exists = NA)
+sims_simulate("a <- runif(1)", nsims = 2L, save = TRUE, path = tempdir(), exists = NA)
 sims_data_files(tempdir())
 
 ## -----------------------------------------------------------------------------
@@ -44,9 +44,9 @@ plan(multisession)
 
 ## -----------------------------------------------------------------------------
 set.seed(10)
-sims_simulate("a ~ dunif(0,1)", nsims = 2L)
+sims_simulate("a <- runif(1)", nsims = 2L)
 
 ## -----------------------------------------------------------------------------
 library(progressr)
-with_progress(sims_simulate("a ~ dunif(0,1)", nsims = 1000L))
+with_progress(sims_simulate("a <- runif(1)", nsims = 1000L))
 

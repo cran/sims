@@ -1,10 +1,10 @@
-context("sims-add")
-
 test_that("sims_add", {
+  skip_if_not_installed("rjags")
+  
   tempdir <- file.path(tempdir(), "sims")
   unlink(tempdir, recursive = TRUE)
 
-  set.seed(101)
+  withr::local_seed(101)
   expect_true(sims_simulate("a ~ dunif(0,1)", path = tempdir, save = TRUE))
 
   expect_error(
@@ -165,10 +165,12 @@ test_that("sims_add", {
 })
 
 test_that("sims_add options seed must be FALSE", {
+  skip_if_not_installed("rjags")
+  
   tempdir <- file.path(tempdir(), "sims")
   unlink(tempdir, recursive = TRUE)
 
-  set.seed(101)
+  withr::local_seed(101)
   expect_true(sims_simulate("a ~ dunif(0,1)", path = tempdir, save = TRUE))
 })
 
@@ -176,7 +178,7 @@ test_that("sims_add R", {
   tempdir <- file.path(tempdir(), "sims")
   unlink(tempdir, recursive = TRUE)
 
-  set.seed(101)
+  withr::local_seed(101)
   expect_true(sims_simulate("a <- runif(1,0,1)",
     silent = TRUE, path = tempdir, save = TRUE
   ))
@@ -334,14 +336,14 @@ test_that("sims_add R", {
 })
 
 test_that("sims_add parallel", {
+  skip_if_not_installed("rjags")
+  
   tempdir <- file.path(tempdir(), "sims")
   unlink(tempdir, recursive = TRUE)
 
-  options(mc.cores = 2)
-  future::plan(future::multisession)
-  teardown(future::plan(future::sequential))
+  use_local_plan(future::multisession)
 
-  set.seed(101)
+  withr::local_seed(101)
   expect_true(sims_simulate("a ~ dunif(0,1)", path = tempdir, save = TRUE))
 
   expect_identical(
@@ -361,10 +363,12 @@ test_that("sims_add parallel", {
 
 
 test_that("progress", {
+  skip_if_not_installed("rjags")
+  
   tempdir <- file.path(tempdir(), "sims")
   unlink(tempdir, recursive = TRUE)
 
-  set.seed(101)
+  withr::local_seed(101)
   expect_true(sims_simulate("a ~ dunif(0,1)", path = tempdir, save = TRUE))
   progressr::with_progress(x <- sims_add(nsims = 2L, path = tempdir))
 
