@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -30,12 +30,12 @@ sims_copy(path_from = tempdir(), path_to = paste0(tempdir(), "_copy"))
 ## -----------------------------------------------------------------------------
 sims_check(path = paste0(tempdir(), "_copy"))
 
-## ---- error = TRUE------------------------------------------------------------
+## ----error = TRUE-------------------------------------------------------------
 file.remove(file.path(paste0(tempdir(), "_copy"), "data0000005.rds"))
 
 sims_check(path = paste0(tempdir(), "_copy"))
 
-## ---- echo = FALSE------------------------------------------------------------
+## ----echo = FALSE-------------------------------------------------------------
 unlink(paste0(tempdir(), "_copy"), recursive = TRUE, force = TRUE) # required to clean up detritus
 
 ## -----------------------------------------------------------------------------

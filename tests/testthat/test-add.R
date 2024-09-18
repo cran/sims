@@ -1,6 +1,6 @@
 test_that("sims_add", {
   skip_if_not_installed("rjags")
-  
+
   tempdir <- file.path(tempdir(), "sims")
   unlink(tempdir, recursive = TRUE)
 

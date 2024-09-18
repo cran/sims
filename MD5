@@ -1,7 +1,7 @@
-9ff6d51d2b8b4bfae7476053ed80ca08 *DESCRIPTION
+d6c1f517ba3928deff5d34205f2f6b84 *DESCRIPTION
 1c3bd61817e155937aba57b631bd66cf *LICENSE
 4429da4a9e9525145269445975e60cb6 *NAMESPACE
-da448221556d0fdd8ff30ecefd7b7f62 *NEWS.md
+f3ef50f9a3261cbd20d1bdc303f6751c *NEWS.md
 da2f06b5a821bf8d2e91d4f276b75458 *R/add.R
 03e1d63e6885f22515d4fe9704cc7bc4 *R/check.R
 ea513dac5ef8aa0728001620c8fd90d1 *R/copy.R
@@ -16,12 +16,12 @@ aaddab18284f56dded6ea8b3cc21ed25 *R/params.R
 bf1bab874571325c5b052c5220fb2c3a *R/simulate.R
 cd3f77f340142b2743150e8fc7c5c562 *R/testthat-helpers.R
 bee0e4fdeb887f8cc3cf54e3caefbe21 *R/utils.R
-25da849b60b06a6ebe6b42a803bcc08a *README.md
-ab4a6307f2a071243f1d1923fa84ae2f *build/vignette.rds
+f6d158876995f1c853f66738ce9139e4 *README.md
+279f70c470c10353dfe0959f3ab400dc *build/vignette.rds
 6defa6c4d65f9b87bbd832dc200829c2 *inst/WORDLIST
-9f08107750084a6415c0c9b517f4ff49 *inst/doc/sims.R
+aafea41414ac54bdb96e3240d7b73509 *inst/doc/sims.R
 2dd3dc7a0d9a30797632fbd05ed1ee17 *inst/doc/sims.Rmd
-e849d0814e9ff33facc23571271f2b08 *inst/doc/sims.html
+1d5f83660c324d0fcd58fd57d1266342 *inst/doc/sims.html
 d858449d40b962dfdf8398248b65754a *man/params.Rd
 f8e96a13f57383928c267b6ff503dfaa *man/reexports.Rd
 6f733592d9ea67b66c96630a6b0b3b8b *man/sims_add.Rd
@@ -33,8 +33,7 @@ fbd580d3b1472d6d605f932dd7a62b67 *man/sims_check.Rd
 7436766794da2990a66dd91e518cb4c4 *man/sims_rdists.Rd
 8c76f35cc224d05ed605e0372230607f *man/sims_simulate.Rd
 c76ade59e43450d69808b48baa842996 *tests/testthat.R
-824a520e6dc64f0aea0f87c3540216ad *tests/testthat/data0000001.rds
-3bc06ec5546e05e148cda7fc3884d968 *tests/testthat/test-add.R
+e0c7d99bd8e0d7d6395367da61a7406e *tests/testthat/test-add.R
 18acc8f34fb19aa21b190155c86983c1 *tests/testthat/test-check.R
 80c32c07854bc472eba07628a27c06c4 *tests/testthat/test-copy.R
 0961c38e5b07d886b5142b4fc20a4287 *tests/testthat/test-data.R

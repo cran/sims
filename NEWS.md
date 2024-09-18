@@ -1,4 +1,8 @@
-<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+<!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
+
+# sims 0.0.4
+
+- Minor housekeeping.
 
 # sims 0.0.3
 
