@@ -1,6 +1,6 @@
 Package: sims
 Title: Simulate Data from R or 'JAGS' Code
-Version: 0.0.4
+Version: 0.0.5
 Authors@R: c(
     person("Audrey", "Beliveau", , "audrey.beliveau@uwaterloo.ca", role = c("aut", "cre")),
     person("Joe", "Thorley", , "joe@poissonconsulting.ca", role = c("aut"),
@@ -12,9 +12,8 @@ Description: Generates data from R or 'JAGS' code for use in simulation
     implemented using the 'future' package.  Progress is reported using
     the 'progressr' package.
 License: MIT + file LICENSE
-URL: https://github.com/poissonconsulting/sims,
-        https://poissonconsulting.github.io/sims/
-BugReports: https://github.com/poissonconsulting/sims/issues
+URL: https://github.com/audrey-b/sims
+BugReports: https://github.com/audrey-b/sims/issues
 Depends: R (>= 4.0.0)
 Imports: chk, future.apply, nlist, parallel, stats, yesno
 Suggests: covr, future, knitr, progressr, rjags, rmarkdown, spelling,
@@ -23,12 +22,12 @@ VignetteBuilder: knitr
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
-RoxygenNote: 7.3.2
 SystemRequirements: JAGS 4.x.y
+Config/roxygen2/version: 8.1.0
 NeedsCompilation: no
-Packaged: 2024-08-30 00:05:33 UTC; aylapearson
+Packaged: 2026-08-25 16:32:03 UTC; audre
 Author: Audrey Beliveau [aut, cre],
-  Joe Thorley [aut] (<https://orcid.org/0000-0002-7683-4592>)
+  Joe Thorley [aut] (ORCID: <https://orcid.org/0000-0002-7683-4592>)
 Maintainer: Audrey Beliveau <audrey.beliveau@uwaterloo.ca>
 Repository: CRAN
-Date/Publication: 2024-09-18 16:30:07 UTC
+Date/Publication: 2026-08-25 21:20:02 UTC

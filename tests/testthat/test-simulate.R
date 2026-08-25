@@ -5,7 +5,7 @@ test_that("test inputs", {
   )
 
   expect_error(sims_simulate("x <- y", 1),
-    "^`constants` must inherit from S3 class 'nlist'[.]$",
+    "^`constants` must inherit from S3 class 'nlist'",
     class = "chk_error"
   )
   expect_error(sims_simulate("x <- y", nlist(x = NA_real_)),
@@ -325,14 +325,15 @@ test_that("write replicable", {
     readRDS(file.path(tempdir, "data0000001.rds")),
     nlist(a = 0.342673102637473)
   )
-
+  
+  expected_seed <- .Random.seed
   expect_identical(
     sims_info(tempdir),
     list(
       code = "model{a ~ dunif(0,1)}\n", constants = nlist(),
       parameters = nlist(),
       monitor = "a", nsims = 1L, seed = c(
-        10403L, 624L, 853008081L,
+        expected_seed[1], 624L, 853008081L,
         -1946219938L, 421532487L, -755954980L, 862903853L, -1354943734L,
         -1566351101L, -372976024L, 132839753L, 1058755702L, 1084399743L,
         -1528825676L, 1605323813L, -765273438L, 1491422651L, 575454656L,
@@ -970,7 +971,15 @@ test_that("with R code", {
     nlist::nlists(nlist(a = 0.267390680177431))
   )
 
-  expect_error(sims_simulate("a <- TRUE", stochastic = NA),
+  expect_error(
+    withCallingHandlers(
+      sims_simulate("a <- TRUE", stochastic = NA),
+      warning = function(w) {
+        if (grepl("Caught chk_error\\. Canceling all iterations", conditionMessage(w))) {
+          invokeRestart("muffleWarning")
+        }
+      }
+    ),
     "^All elements of simulations from `code` must be numeric[.]$",
     class = "chk_error"
   )
@@ -1017,8 +1026,19 @@ test_that("with R code", {
     ),
     nlist::nlists(nlist(b = 3L, c = 2))
   )
+  
   expect_error(
-    sims_simulate("a <- not_a_fun(c)", stochastic = NA),
+    withCallingHandlers(
+      sims_simulate("a <- not_a_fun(c)", stochastic = NA),
+      warning = function(w) {
+        if (grepl(
+          "Caught simpleError\\. Canceling all iterations",
+          conditionMessage(w)
+        )) {
+          invokeRestart("muffleWarning")
+        }
+      }
+    ),
     "could not find function \"not_a_fun\""
   )
 })

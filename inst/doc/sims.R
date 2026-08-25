@@ -31,9 +31,11 @@ sims_copy(path_from = tempdir(), path_to = paste0(tempdir(), "_copy"))
 sims_check(path = paste0(tempdir(), "_copy"))
 
 ## ----error = TRUE-------------------------------------------------------------
+try({
 file.remove(file.path(paste0(tempdir(), "_copy"), "data0000005.rds"))
 
 sims_check(path = paste0(tempdir(), "_copy"))
+})
 
 ## ----echo = FALSE-------------------------------------------------------------
 unlink(paste0(tempdir(), "_copy"), recursive = TRUE, force = TRUE) # required to clean up detritus
@@ -45,6 +47,9 @@ plan(multisession)
 ## -----------------------------------------------------------------------------
 set.seed(10)
 sims_simulate("a <- runif(1)", nsims = 2L)
+
+## -----------------------------------------------------------------------------
+plan(sequential)
 
 ## -----------------------------------------------------------------------------
 library(progressr)
